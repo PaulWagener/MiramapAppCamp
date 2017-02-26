@@ -54,8 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LatLng amsterdam = new LatLng(52.312716, 4.769712);
 
     //    private static final String layerID = "ddl.simS1seriesTwenteNetherlands.smc";
-    private static final String layerID = "public.xcold";
-    private static final String layerID2 = "public._3e6y4";
+    private static final String layerID = "ddl.simS1seriesTwenteNetherlands.smc";
+    private static final String layerID2 = "public.xcold";
     private RSMapServices mRSMapServices = new RSMapServices();
     private Context mContext;
 
