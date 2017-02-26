@@ -12,19 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <RelativeLayout
-        android:id="@+id/llMap2"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <fragment
-            android:id="@+id/map2"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

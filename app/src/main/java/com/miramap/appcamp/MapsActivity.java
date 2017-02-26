@@ -41,21 +41,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         RamaniListener.onStorePointDone, RamaniListener.onStorePolygonDone,RamaniListener.onStoreLineDone, SeekBar.OnSeekBarChangeListener {
 
     private GoogleMap mMap;
-    private GoogleMap mMap2;
 
-    private RelativeLayout llMap2;
     private SupportMapFragment mapFragment;
-    private SupportMapFragment   mapFragment2;
     private SeekBar mSeekBar;
 
     private TileProvider tp;
-    private TileProvider tp2;
 
     LatLng amsterdam = new LatLng(52.312716, 4.769712);
 
     //    private static final String layerID = "ddl.simS1seriesTwenteNetherlands.smc";
-    private static final String layerID = "ddl.simS1seriesTwenteNetherlands.smc";
-    private static final String layerID2 = "public.xcold";
+    private static final String layerID = "public.xcold";
     private RSMapServices mRSMapServices = new RSMapServices();
     private Context mContext;
 
@@ -231,10 +226,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(map);
         mapFragment.getMapAsync(this);
 
-        mapFragment2 = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map2);
-
-        llMap2 = (RelativeLayout) findViewById(R.id.llMap2);
         mSeekBar = (SeekBar) findViewById(R.id.seekBar);
         mSeekBar.setOnSeekBarChangeListener(this);
 
@@ -257,30 +248,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(amsterdam).title("Marker in Holland"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(amsterdam, 12.0f));
 
-        mapFragment2.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                mMap2 = googleMap;
-                mMap2.addMarker(new MarkerOptions().position(amsterdam).title("Marker in Holland"));
-                mMap2.animateCamera(CameraUpdateFactory.newLatLngZoom(amsterdam, 12.0f));
-                mMap2.setPadding(0,0,0,0);
-
-                mMap2.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
-                    @Override
-                    public void onCameraChange(CameraPosition cameraPosition) {
-                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                    }
-                });
-
-                mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
-                    @Override
-                    public void onCameraChange(CameraPosition cameraPosition) {
-                        mMap2.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                    }
-                });
-            }
-        });
-
         // Request for satellite data
         mRSMapServices.apiKey("2824ecdb27bbc418b073883b7f0d3e1b", "paulwagener", getApplicationContext(), this);
 
@@ -295,16 +262,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (tp != null) {
                 mTileOverlay1 = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(tp));
             }
-
-            tp2 = mRSMapServices.getMap(layerID2);
-            if (tp2 != null) {
-                mTileOverlay2 = mMap2.addTileOverlay(new TileOverlayOptions().tileProvider(tp2));
-            }
         }
     }
 
     private TileOverlay mTileOverlay1;
-    private TileOverlay mTileOverlay2;
 
 
     private void setOnClickListener(GoogleMap mMap, final String layerID) {
@@ -438,12 +399,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         RelativeLayout.LayoutParams rel_btn = new RelativeLayout.LayoutParams(
                 (mapWidth-progress), ViewGroup.LayoutParams.MATCH_PARENT);
         rel_btn.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-
-        llMap2.setLayoutParams(rel_btn);
-        llMap2.postInvalidate();
-
-        mMap2.setPadding(0,0,progress,0);
-        mMap2.animateCamera(CameraUpdateFactory.newCameraPosition(mMap.getCameraPosition()));
 
     }
 
