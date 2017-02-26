@@ -14,16 +14,13 @@ import com.google.android.gms.maps.model.TileProvider;
 import com.ujuizi.ramani.api.android.RSMapServices;
 import com.ujuizi.ramani.api.android.RamaniListener;
 
-import static com.miramap.appcamp.R.id.map;
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, RamaniListener.onAPICheckDone {
 
     private GoogleMap mMap;
-
-    LatLng amsterdam = new LatLng(52.312716, 4.769712);
+    private LatLng amsterdam = new LatLng(52.312716, 4.769712);
+    private RSMapServices mRSMapServices = new RSMapServices();
 
     private static final String layerID = "public.xcold";
-    private RSMapServices mRSMapServices = new RSMapServices();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(map);
+                .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
 
