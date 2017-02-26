@@ -1,8 +1,124 @@
-<fragment android:id="@+id/map"
-          android:name="com.google.android.gms.maps.SupportMapFragment"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:map="http://schemas.android.com/apk/res-auto"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          tools:context="com.miramap.appcamp.MapsActivity"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.miramap.appcamp.MapsActivity" >
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/llMap2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map2"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:layout_above="@+id/search_btn"/>
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Search"
+        android:textSize="12sp"
+        android:layout_above="@+id/getArea_btn"/>
+    <Button
+        android:id="@+id/store_point_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Store Point"
+        android:textSize="12sp"
+        android:layout_above="@+id/getArea_btn"
+        android:layout_alignParentRight="true"/>
+    <Button
+        android:id="@+id/getArea_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Get Area"
+        android:textSize="12sp"
+        android:layout_above="@+id/getTransect_btn"/>
+    <Button
+        android:id="@+id/store_polygon_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Store Poligon"
+        android:textSize="12sp"
+        android:layout_above="@+id/getTransect_btn"
+        android:layout_alignParentRight="true"/>
+    <Button
+        android:id="@+id/getTransect_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Get Transect"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/store_line_btn"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Store line"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/getTransect_btn"
+        android:layout_alignParentRight="true"/>
+    <Button
+        android:id="@+id/btn_get_animation"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Get Animation"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/getTransect_btn"/>
+    <Button
+        android:id="@+id/btn_get_dates_for_time_series"
+        android:layout_margin="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Get Dates for Time Series"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btn_get_layer_attributes"/>
+    <Button
+        android:id="@+id/btn_get_layer_attributes"
+        android:layout_width="49dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:text="Get Layer Attributes"
+        android:textSize="10sp"
+        android:layout_alignRight="@+id/btn_get_animation"
+        android:layout_above="@+id/btn_get_animation"/>
+    <Button
+        android:layout_marginBottom="5dp"
+        android:id="@+id/btn_set_layer_attributes"
+        android:layout_width="49dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/btn_get_animation"
+        android:text="Set Layer Attributes"
+        android:textSize="10sp"
+        android:layout_above="@+id/btn_get_animation"/>
+</RelativeLayout>
