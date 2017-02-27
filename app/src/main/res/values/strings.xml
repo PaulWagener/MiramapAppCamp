@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Miramap</string>
-    <string name="title_activity_maps">Miramap</string>
+    <string name="app_name">Drought Scan</string>
+    <string name="title_activity_maps">DroughtScan</string>
 </resources>
